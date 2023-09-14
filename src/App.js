@@ -51,8 +51,8 @@ function App() {
 
     axios.get(url).then((res) => {
       setTimeout (() => {
-      setData(res.data);
-      setLoading(false);
+        setData(res.data);
+        setLoading(false);
       }, 1100)
       
     }).catch (err => {
@@ -73,9 +73,9 @@ function App() {
   // if data is false show the loader
   if (!data) {
     return (
-      <div>
+      <div className="w-full h-screen bg-gradient-to-r from-cyan-400 to-blue-700 flex flex-col justify-center items-center">
         <div>
-          <ImSpinner8 className="text-5xl animate-spin" />
+          <ImSpinner8 className="text-5xl animate-spin text-white" />
         </div>
       </div>
     );
@@ -88,28 +88,24 @@ function App() {
       icon = <IoMdCloudy />;
       break;
 
-    case 'Hase':
+    case 'Haze':
       icon = <BsCloudHaze2Fill />;
       break;
 
     case 'Rain':
-      icon = <IoMdRainy />;
+      icon = <IoMdRainy className="text-[#31cafb]"/>;
       break;
 
     case 'Clear':
-      icon = <IoMdSunny />;
+      icon = <IoMdSunny className="text-[#ffde33]"/>;
       break;
 
-    case 'CloClearuds':
-        icon = <IoMdSunny />;
-        break;
-
     case 'Drizzle':
-      icon = <BsCloudDrizzleFill />;
+      icon = <BsCloudDrizzleFill className="text-[#31cafb]"/>;
       break;
 
     case 'Snow':
-      icon = <IoMdSnow />;
+      icon = <IoMdSnow className="text-[#31cafb]"/>;
       break;
 
     case 'Thunderstorm':
