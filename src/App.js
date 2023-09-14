@@ -5,13 +5,27 @@ import {BsCloudHaze2, BsCloudDrizzleFill, BsEye, BsWater, BsThermometer, BsWind}
 import {TbTemperatureCelsius} from 'react-icons/tb';
 import {ImSpinner8} from 'react-icons/im';
 
-const APIkey = (process.env.REACT_APP_SECRET_KEY);
-console.log(APIkey)
+
+
 function App() {
+
+  const [data, setData] = useState(null);
+  const [location, setLocation] = useState('Berlin');
+
+  // fetch data
+  useEffect(() => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_SECRET_KEY}`
+
+    axios.get(url).then((res) => {
+      setData(res.data);
+    })
+  }, [location]);
+
+  console.log(data);
+  
   return (
     <div>
       <h1>weather-app</h1>
-      
     </div>
   );
 }
