@@ -11,6 +11,27 @@ function App() {
 
   const [data, setData] = useState(null);
   const [location, setLocation] = useState('Berlin');
+  const [inputValue, setInputValue] = useState('');
+
+
+  const handleInput = (i) => {
+    setInputValue(i.target.value);
+  };
+
+  const handleSubmit = (i) => {
+    console.log(inputValue);
+
+    if (inputValue !== '') {
+      setLocation(inputValue);
+    };
+
+    const input = document.querySelector('input');
+
+    input.value = '';
+
+    i.preventDefault();
+
+  };
 
   // fetch data
   useEffect(() => {
@@ -75,8 +96,8 @@ function App() {
     <div className="w-full h-screen bg-gradient-to-r from-cyan-400 to-blue-700 flex flex-col items-center justify-center px-4 lg:px-0">
       <form className="h-16 bg-black/20 w-full max-w-[450px] rounded-full backdrop-blur-[32px] mb-8">
         <div className="h-full relative flex items-center justify-between p-2">
-          <input className="flex-1 bg-transparent outline-none placeholder:text-white text-white text-[15px] font-light pl-6 h-full" type='text' placeholder='Search by citi or country' />
-          <button className="bg-[#1ab8ed] hover:bg-[#15abdd] w-20 h-12 rounded-full flex justify-center items-center transition">
+          <input onChange={(i) => handleInput(i)} className="flex-1 bg-transparent outline-none placeholder:text-white text-white text-[15px] font-light pl-6 h-full" type='text' placeholder='Search by citi or country' />
+          <button onClick={(i) => handleSubmit(i)} className="bg-[#1ab8ed] hover:bg-[#15abdd] w-20 h-12 rounded-full flex justify-center items-center transition">
             <IoMdSearch className="text-2xl text-white"/>
           </button>
         </div>
