@@ -121,7 +121,7 @@ function App() {
       {errorMsg && <div className="w-full max-w-[90vw] lg:max-w-[400px] bg-[#ff208c] text-white absolute top-2 lg:top-10 p-4 capitalize rounded-md">{`${errorMsg.response.data.message}`}</div>}
       <form className={`${animate ? 'animate-shake' : 'animate-none'} h-12 bg-black/20 w-full max-w-[400px] rounded-full backdrop-blur-[32px] mb-6`}>
         <div className="h-full relative flex items-center justify-between p-2">
-          <input onChange={(i) => handleInput(i)} className="flex-1 bg-transparent outline-none placeholder:text-white text-white text-[15px] font-light pl-6 h-full" type='text' placeholder='Search by citi or country' />
+          <input onChange={(i) => handleInput(i)} className="flex-1 bg-transparent outline-none placeholder:text-white text-white text-[15px] font-light pl-6 h-full" type='text' placeholder='Search by city or country' />
           <button onClick={(i) => handleSubmit(i)} className="bg-[#1ab8ed] hover:bg-[#15abdd] w-14 h-8 rounded-full flex justify-center items-center transition">
             <IoMdSearch className="text-2xl text-white"/>
           </button>
